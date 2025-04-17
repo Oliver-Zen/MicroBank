@@ -50,8 +50,6 @@ It covers every stage of microservices development from **architecture design** 
 - Cloud deployment into K8s cluster
 - **K8s Ingress**, **Istio**, and **mTLS**
 
----
-
 ## 🛠️ My Progress
 
 I will be pushing structured code aligned with each section as I move through the course. Stay tuned!
