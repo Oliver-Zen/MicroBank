@@ -34,7 +34,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 				url = "https://github.com/Oliver-Zen"
 		)
 )
-
 public class AccountsApplication {
 
 	public static void main(String[] args) {
