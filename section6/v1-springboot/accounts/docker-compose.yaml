@@ -1,0 +1,37 @@
+services:
+  accounts:
+    image: "o1izen/accounts:s4"
+    container_name: accounts-ms
+    ports:
+      - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - MicroBank
+  loans:
+    image: "o1izen/loans:s4"
+    container_name: loans-ms
+    ports:
+      - "8090:8090"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - MicroBank
+  cards:
+    image: "o1izen/cards:s4"
+    container_name: cards-ms
+    ports:
+      - "9000:9000"
+    deploy:
+      resources:
+        limits:
+          memory: 700m
+    networks:
+      - MicroBank
+networks:
+  MicroBank:
+    driver: "bridge"
