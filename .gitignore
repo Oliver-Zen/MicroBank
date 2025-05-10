@@ -1,0 +1,5 @@
+# macOS specific
+**/.DS_Store
+
+# IntelliJ IDEA specific files
+section*/.idea/compiler.xml
