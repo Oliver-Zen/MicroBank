@@ -7,4 +7,4 @@
 /dataSources/
 /dataSources.local.xml
 # Ignore build artifacts
-section4/loans/target/l
+section4/loans/target/
