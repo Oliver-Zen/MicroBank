@@ -4,6 +4,7 @@ import com.olizen.accounts.constants.AccountsConstants;
 import com.olizen.accounts.dto.CustomerDto;
 import com.olizen.accounts.dto.ErrorResponseDto;
 import com.olizen.accounts.dto.ResponseDto;
+import com.olizen.accounts.dto.AccountsContactInfoDto;
 import com.olizen.accounts.service.IAccountsService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
@@ -45,6 +46,9 @@ public class AccountsController {
 
     @Autowired
     private Environment environment;
+
+    @Autowired
+    private AccountsContactInfoDto accountsContactInfoDto;
 
     @Operation(
             summary = "Create Account REST API",
@@ -224,6 +228,31 @@ public class AccountsController {
 //                .body(environment.getProperty("PATH"));
 //                .body(environment.getProperty("java.home")); // e.g., /Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home
                 .body(environment.getProperty("java.version")); // 21 or 22
+    }
+
+    @Operation(
+            summary = "Get Contact Info",
+            description = "Contact Info details that can be reached out in case of any issues"
+    )
+    @ApiResponses({
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "HTTP Status OK"
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "HTTP Status Internal Server Error",
+                    content = @Content(
+                            schema = @Schema(implementation = ErrorResponseDto.class)
+                    )
+            )
+    }
+    )
+    @GetMapping("/contact-info")
+    public ResponseEntity<AccountsContactInfoDto> getContactInfo() {
+        return ResponseEntity
+                .status(HttpStatus.OK)
+                .body(accountsContactInfoDto);
     }
 
 }
