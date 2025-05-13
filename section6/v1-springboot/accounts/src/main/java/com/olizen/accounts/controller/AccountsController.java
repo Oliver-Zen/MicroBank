@@ -23,6 +23,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Tag(
         name = "CRUD REST APIs for Accounts in MicroBank",
         description = "CRUD REST APIs in MicroBank to CREATE, UPDATE, FETCH AND DELETE account details"
@@ -222,12 +225,13 @@ public class AccountsController {
     }
     )
     @GetMapping("/java-version")
-    public ResponseEntity<String> getJavaVersion() {
+    public ResponseEntity<Map<String, String>> getJavaVersion() {
+        Map<String, String> response = new HashMap<>();
+        response.put("javaVersion", environment.getProperty("java.version"));
+        response.put("javaHome", environment.getProperty("java.home"));
         return ResponseEntity
                 .status(HttpStatus.OK)
-//                .body(environment.getProperty("PATH"));
-//                .body(environment.getProperty("java.home")); // e.g., /Library/Java/JavaVirtualMachines/jdk-22.jdk/Contents/Home
-                .body(environment.getProperty("java.version")); // 21 or 22
+                .body(response);
     }
 
     @Operation(
