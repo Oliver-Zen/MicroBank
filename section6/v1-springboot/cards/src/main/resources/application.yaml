@@ -26,7 +26,7 @@ build:
   version: "3.0"
 
 cards:
-  message: "Welcome to MicroBank loans related local APIs"
+  message: "Welcome to MicroBank cards related local APIs"
   contactDetails:
     name: "Olizen Lollapa - Developer"
     email: "olizen@mugerist.com"
